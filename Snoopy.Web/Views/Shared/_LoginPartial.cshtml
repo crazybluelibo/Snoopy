@@ -1,22 +1,31 @@
-﻿@using Microsoft.AspNet.Identity
-@if (Request.IsAuthenticated)
-{
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+﻿@model SocialGoal.Models.LoginViewModel
+<style>
+    ul
     {
-    @Html.AntiForgeryToken()
-
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("你好 " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "管理" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">注销</a></li>
-    </ul>
+        list-style-type: none;
     }
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("注册", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("登录", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+  
+</style>
+@{ Html.BeginForm("Login", "Account", FormMethod.Post);}
+<div class="span12">
+    <h4>
+        Login</h4>
+    <hr />
+    <ul>
+        <li>@Html.ValidationSummary(true)</li>
+        <li>@Html.TextBoxFor(m => m.Email, new { @id = "username", @placeholder = "Email" })@Html.ValidationMessageFor(m => m.Email)
+        </li>
+        <li>@Html.PasswordFor(m => m.Password, new { @id = "password", @type = "password", @placeholder = "Password" })@Html.ValidationMessageFor(m => m.Password)
+        </li>
+        <li>
+            <input id="loginbtn" style="" type="submit" class="btn btn-primary" name="login"
+                value="Log In" />
+        </li>
+        <li>
+        @Html.ActionLink("Forgot Password?","ForgotPassword","Account",null,null)
+        </li>
     </ul>
-}
+    @Html.AntiForgeryToken()
+</div>
+@*</div>*@ @*@Html.LabelFor(m => m.Email, new { @class = "td-label" })*@ @*@Html.LabelFor(m => m.Password, new { @class = "td-label" })*@
+@{ Html.EndForm();}
