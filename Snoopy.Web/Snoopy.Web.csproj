@@ -167,7 +167,6 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -443,6 +442,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Snoopy.Core\Snoopy.Core.csproj">
+      <Project>{842FBC94-6AC3-459D-8045-8A4DA7A9257B}</Project>
+      <Name>Snoopy.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Snoopy.Model\Snoopy.Model.csproj">
+      <Project>{0DE652E9-A297-49CA-9C99-9307A7268786}</Project>
+      <Name>Snoopy.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

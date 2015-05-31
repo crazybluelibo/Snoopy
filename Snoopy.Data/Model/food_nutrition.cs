@@ -1,0 +1,1 @@
+using System; namespace Snoopy.Data.Model{	public class food_nutrition	{		public int ID{ get; set; }		public int foodID{ get; set; }		public string nName{ get; set; }		public string nNumber{ get; set; }		public string nUnit{ get; set; }		public string nPerWeight{ get; set; }	}}

@@ -1,0 +1,1 @@
+using System; namespace Snoopy.Data.Model{	public class user_symptom	{		public int ID{ get; set; }		public string user_id{ get; set; }		public int symptom_id{ get; set; }		public bool symptom_check{ get; set; }		public string symptom_desc{ get; set; }	}}

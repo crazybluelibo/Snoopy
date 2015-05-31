@@ -24,8 +24,8 @@
     
     <div class="nav-collapse">
         <ul class="nav">
-            <li><a href="/Home/Index">Home</a></li>
-            <li><a href="/Notification/Index">My Invitations
+            <li><a href="/Home/Index">每日推荐</a></li>
+            <li><a href="/Notification/Index">我在计划
                 @*@{
     var not = Html.Action("GetNumberOfInvitations", "Notification");
     if (not.ToString() != "0")
@@ -35,13 +35,13 @@
                 }*@
             </a></li>
             @*<li><a href="/Goal/ListOfGoals">Goals</a></li>*@
-            <li><a href="/Goal/GoalList">Goals</a></li>
+            <li><a href="/Goal/GoalList">个人信息</a></li>
             @*<li><a href="/Group/ListOfGroups">Groups</a></li>*@
-            <li><a href="/Group/GroupList">Groups</a></li>
+            @*<li><a href="/Group/GroupList">Groups</a></li>
             <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">People
                 <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li class=""><a href="/Account/Followers">Followers</a></li>@*onclick="GetFollowers();"*@
+                    <li class=""><a href="/Account/Followers">Followers</a></li> 
                     <li class=""><a href="/Account/Followings">Following</a> </li>
                 </ul>
             </li>
@@ -59,7 +59,7 @@
                 <input class="search-query span2" id="searchText" name="searchText" placeholder="Search"  type="text" value="@ViewBag.searchtext" />
                 <input type="submit" style="display: none;" />
                 </form>
-            </li>
+            </li>*@
         </ul>
     </div>
     

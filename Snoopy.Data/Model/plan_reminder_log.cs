@@ -1,0 +1,1 @@
+using System; namespace Snoopy.Data.Model{	public class plan_reminder_log	{		public int ID{ get; set; }		public int plan_id{ get; set; }		public string log{ get; set; }		public DateTime time_stamp{ get; set; }	}}

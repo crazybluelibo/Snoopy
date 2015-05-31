@@ -1,0 +1,1 @@
+using System; namespace Snoopy.Data.Model{	public class user_food_sentiment	{		public string user_id{ get; set; }		public int cate_id{ get; set; }		public int food_id{ get; set; }		public bool sentiment{ get; set; }	}}

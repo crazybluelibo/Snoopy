@@ -1,0 +1,1 @@
+using System; namespace Snoopy.Data.Model{	public class food_recommendation_json	{		public int ID{ get; set; }		public string user_id{ get; set; }		public byte[] json_code{ get; set; }		public DateTime time_stamp{ get; set; }	}}

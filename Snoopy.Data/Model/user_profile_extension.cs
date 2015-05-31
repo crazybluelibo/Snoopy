@@ -1,0 +1,1 @@
+using System; namespace Snoopy.Data.Model{	public class user_profile_extension	{		public int ID{ get; set; }		public string user_id{ get; set; }		public int meta_id{ get; set; }		public string ext_value{ get; set; }	}}

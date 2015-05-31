@@ -1,0 +1,1 @@
+using System; namespace Snoopy.Data.Model{	public class symptom_food	{		public int ID{ get; set; }		public int symptom_id{ get; set; }		public int food_id{ get; set; }		/// <summary>		/// 0忌；1宜。		/// </summary>		public int suitability{ get; set; }		/// <summary>		/// 宜忌的强烈程度。0：中性；1较（不）推荐；2（不）推荐；3强烈（不）推荐。		/// </summary>		public int intensity{ get; set; }	}}

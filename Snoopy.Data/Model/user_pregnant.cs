@@ -1,0 +1,1 @@
+using System; namespace Snoopy.Data.Model{	public class user_pregnant	{		public string user_id{ get; set; }		public DateTime pregnant_date{ get; set; }		public int pregnant_times{ get; set; }		public bool got_cold{ get; set; }		public DateTime cold_date{ get; set; }	}}

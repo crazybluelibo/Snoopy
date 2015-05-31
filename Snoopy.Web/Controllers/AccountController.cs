@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
+using Snoopy.Core;
+using Snoopy.Model;
 using Snoopy.Web.Models;
 
 namespace Snoopy.Web.Controllers
@@ -16,7 +18,7 @@ namespace Snoopy.Web.Controllers
     public class AccountController : Controller
     {
         public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
+            : this(new UserManager<ApplicationUser>(new SnoopyUserStore()))
         {
         }
 
@@ -45,8 +47,8 @@ namespace Snoopy.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
-                if (user != null)
+                var user = await UserManager.FindByNameAsync(model.UserName);
+                if (user != null&&user.PhoneNumber==model.PhoneNumber)
                 {
                     await SignInAsync(user, model.RememberMe);
                     return RedirectToLocal(returnUrl);
@@ -78,8 +80,8 @@ namespace Snoopy.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var user = new ApplicationUser() { UserName = model.UserName, PhoneNumber = model.PhoneNumber };
+                var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);

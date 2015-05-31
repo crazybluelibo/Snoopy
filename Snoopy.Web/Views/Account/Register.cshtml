@@ -1,13 +1,10 @@
-﻿@model SocialGoal.Models.RegisterViewModel
+﻿@model Snoopy.Web.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
     Layout = "../Shared/_Layout.cshtml";
 }
-
 <h2>@ViewBag.Title.</h2>
-
 <link href="/Content/CustomStyles.css" rel="stylesheet" type="text/css" />
-
 <div class="navbar navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container-fluid">
@@ -15,12 +12,11 @@
         </div>
     </div>
 </div>
-
 <div class="container-fluid margin-top">
     <div class="row-fluid">
         <div class="span7" id="content">
             <div style="padding:80px;">
-                <img src="/Images/replacement%20people.jpg" />
+                <img src="/Images/replacementpeople.jpg" />
                 @*   <p>
                     Setting goals is an integral component of career and life success. You don't always
                     need to write down the goals you set, although goal setting gurus say you should
@@ -31,9 +27,7 @@
                     Do you set goals? And, if you do, even if the goals are only in your mind or heart,
                     please share a goal you are currently working to accomplish.&nbsp;</p>*@
             </div>
-
         </div>
-
 
         <div class="span4 row-fluid">
             <div class="row">
@@ -51,21 +45,21 @@
                                     @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
                                 </div>
                             </div>
-                            <br/>
+                            <br />
                             <div class="form-group">
-                                @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label", style = "text-align: left;width:80px;" })
+                                @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label", style = "text-align: left;width:80px;" })
                                 <div class="col-md-10">
-                                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
                                 </div>
                             </div>
-                            <br/>
-                            <div class="form-group">
+                            <br />
+                            @*<div class="form-group">
                                 @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label", style = "text-align: left;width:80px;" })
                                 <div class="col-md-10">
                                     @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
                                 </div>
-                            </div>
-                            <br/>
+                            </div>*@
+                            <br />
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
                                     <input type="submit" class="btn btn-primary" value="Register" />
@@ -78,7 +72,6 @@
         </div>
     </div>
 </div>
-
 @*@section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
     }*@

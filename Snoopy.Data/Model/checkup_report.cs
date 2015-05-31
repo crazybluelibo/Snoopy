@@ -1,0 +1,1 @@
+using System; namespace Snoopy.Data.Model{	public class checkup_report	{		public int ID{ get; set; }		public int check_id{ get; set; }		public string desc{ get; set; }		public byte [] report_file{ get; set; }		public int need_reminding{ get; set; }		public DateTime time_stamp{ get; set; }	}}

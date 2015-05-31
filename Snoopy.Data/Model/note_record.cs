@@ -1,0 +1,1 @@
+using System; namespace Snoopy.Data.Model{	public class note_record	{		public int record_id{ get; set; }		public int box_id{ get; set; }		public DateTime record_time{ get; set; }	}}
