@@ -287,9 +287,15 @@ namespace Snoopy.Web.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
+        //[HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
+        {
+            //AuthenticationManager.SignOut();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult LogOut()
         {
             AuthenticationManager.SignOut();
             return RedirectToAction("Index", "Home");
@@ -300,6 +306,7 @@ namespace Snoopy.Web.Controllers
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {
+            AuthenticationManager.SignOut();
             return View();
         }
 

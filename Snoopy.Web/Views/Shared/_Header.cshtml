@@ -18,14 +18,27 @@
             </li>*@
             <li class="divider"></li>
             @*<li><a href="/Account/LogOff">Sign Out</a></li>*@
-            <li>@Html.ActionLink("Sign Out","LogOff","Account")</li>
+            <li>@Html.ActionLink("Sign Out", "LogOut", "Account")</li>
         </ul>
     </div>
     
     <div class="nav-collapse">
         <ul class="nav">
             <li><a href="/Home/Index">每日推荐</a></li>
+            <li>
+                <a href="/Notification/Index">
+                    My Invitations
+                    @{
+    var not = Html.Action("GetNumberOfInvitations", "Notification");
+    if (not.ToString() != "0")
+    {
+        <sup><span class="badge badge-important">@not</span> </sup>
+    }
+                    }
+                </a>
+            </li>
             <li><a href="/Notification/Index">我在计划
+
                 @*@{
     var not = Html.Action("GetNumberOfInvitations", "Notification");
     if (not.ToString() != "0")

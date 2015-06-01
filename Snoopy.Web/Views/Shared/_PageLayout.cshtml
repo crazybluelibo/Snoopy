@@ -89,13 +89,13 @@
                 @RenderBody()
             </div>
             <div class="span3">
-                <div id="mygoals" class="well">
+                @*<div id="mygoals" class="well">
                     <h5>
                         MY GOALS</h5>
                     <div>
                         @{ Html.RenderAction("MyGoals", "Goal"); }
                     </div>
-                    @*</fieldset>*@
+                    @*</fieldset>
                 </div>
                 <div id="followedgoals" class="well">
                     <h5 title="user following goals">
@@ -121,7 +121,7 @@
                             @{ Html.RenderAction("FollowedGroups", "Group"); }
                         </div>
                     </div>
-                </div>
+                </div>*@
             </div>
         </div>
     </div>
