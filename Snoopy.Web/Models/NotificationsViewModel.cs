@@ -1,6 +1,6 @@
 ﻿using System;
- 
-namespace SocialGoal.Web.ViewModels
+
+namespace Snoopy.Web.Models
 {
     public class NotificationViewModel
     {

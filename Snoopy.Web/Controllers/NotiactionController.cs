@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using SocialGoal.Web.ViewModels;
+using Snoopy.Web.Models;
 
 namespace Snoopy.Web.Controllers
 {

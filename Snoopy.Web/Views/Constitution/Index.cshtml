@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Snoopy.Web.Models.ConstitutionItemViewModel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>体制测试</h4><hr />
+ 
+    <div id="NotificationContainer">
+       @foreach (var item in Model)
+       {
+
+           Html.Partial("_ConstitutionList", item);
+       }
+    </div>
+ 
+
