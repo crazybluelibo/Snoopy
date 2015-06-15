@@ -17,6 +17,6 @@ namespace Snoopy.Web.Models
 
     public class ConstitutionViewModel
     {
-
+        public List<ConstitutionItemViewModel> Items { get; set; }
     }
 }

@@ -1,17 +1,58 @@
-﻿@model IEnumerable<Snoopy.Web.Models.ConstitutionItemViewModel>
+﻿@model   Snoopy.Web.Models.ConstitutionViewModel 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h4>体制测试</h4><hr />
- 
-    <div id="NotificationContainer">
-       @foreach (var item in Model)
-       {
+<div class="well">
 
-           Html.Partial("_ConstitutionList", item);
-       }
+    <h4>体制测试</h4><hr />
+
+
+
+</div>
+@*<div class="container-fluid margin-top">
+    <div  >
+        <div class="span6">
+            <div>
+                <div class=" content-wrapper">
+                    @foreach (var item in Model.Items)
+                    {
+                        <div class="alert alert-info" style="margin-left: 20px">
+                            @Html.Label(item.Key)
+                            @Html.CheckBox(item.Key, item.IsChecked)
+                        </div>
+                    }
+                </div>
+            </div>
+            <input type="button" value="保存" class="btn btn-primary" />
+
+        </div>
     </div>
- 
+</div>*@
+<div>
+    @using (Html.BeginForm("Save", "Constitution"))
+    {
+        <div>
+            Book Name: @Html.TextBox("Model.Items[0].Key")
+        </div>
+        
+        <div>
+            <input type="submit" id="submit" name="submit" value="submit"/>
+        </div>
+    }
+</div>
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+<script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script>
+   
+</script>
+
 
