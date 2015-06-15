@@ -10,13 +10,26 @@ namespace Snoopy.Web.Models
     /// </summary>
     public class ConstitutionItemViewModel
     {
-        public string Key { get; set; }
+
+        public string Id { get; set; }
+        public string Name { get; set; }
 
         public bool IsChecked { get; set; }
     }
 
     public class ConstitutionViewModel
     {
-        public List<ConstitutionItemViewModel> Items { get; set; }
+
+        public IList<ConstitutionItemViewModel> AvailableItems { get; set; }
+        public IList<ConstitutionItemViewModel> SelectedItems { get; set; }
+
+        public PostedConstitutions Posted { get; set; }
+    }
+
+
+    public class PostedConstitutions
+    {
+        // this array will be used to POST values from the form to the controller
+        public string[] Keys { get; set; }
     }
 }

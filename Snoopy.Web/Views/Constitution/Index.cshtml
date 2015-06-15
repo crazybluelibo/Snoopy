@@ -1,4 +1,7 @@
-﻿@model   Snoopy.Web.Models.ConstitutionViewModel 
+﻿@using System.Data
+@using MvcCheckBoxList.Model
+@using Snoopy.Core
+@model   Snoopy.Web.Models.ConstitutionViewModel
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,35 +15,49 @@
 
 </div>
 @*<div class="container-fluid margin-top">
-    <div  >
-        <div class="span6">
-            <div>
-                <div class=" content-wrapper">
-                    @foreach (var item in Model.Items)
-                    {
-                        <div class="alert alert-info" style="margin-left: 20px">
-                            @Html.Label(item.Key)
-                            @Html.CheckBox(item.Key, item.IsChecked)
-                        </div>
-                    }
+        <div  >
+            <div class="span6">
+                <div>
+                    <div class=" content-wrapper">
+                        @foreach (var item in Model.Items)
+                        {
+                            <div class="alert alert-info" style="margin-left: 20px">
+                                @Html.Label(item.Key)
+                                @Html.CheckBox(item.Key, item.IsChecked)
+                            </div>
+                        }
+                    </div>
                 </div>
-            </div>
-            <input type="button" value="保存" class="btn btn-primary" />
+                <input type="button" value="保存" class="btn btn-primary" />
 
+            </div>
         </div>
-    </div>
-</div>*@
+    </div>*@
 <div>
-    @using (Html.BeginForm("Save", "Constitution"))
-    {
+   
         <div>
-            Book Name: @Html.TextBox("Model.Items[0].Key")
+   @*@Html.Editor(Model.Items)*@
+            @*@Html.CheckBoxList("name", Model.Items.Select(it => new SelectListItem() { Selected = it.IsChecked, Text = it.Key }))*@
         </div>
+
+    <p>
+        <label>Output:</label>
+        @using (Html.BeginForm("Save", "Constitution", FormMethod.Get)) 
         
-        <div>
-            <input type="submit" id="submit" name="submit" value="submit"/>
-        </div>
-    }
+        {
+      
+          <div class="margin_bottom10">
+            @Html.CheckBoxListFor(model => model.Posted.Keys,
+                model => model.AvailableItems,
+                it => it.Id,
+                it => it.Name,
+                model => model.SelectedItems);
+              </div>
+
+        <p><input class="green" type="submit" value="POST to controller" /></p>
+	    }
+      
+        <p>
 </div>
 
 @*@section Scripts {
@@ -52,7 +69,7 @@
 <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
 <script>
-   
+
 </script>
 
 

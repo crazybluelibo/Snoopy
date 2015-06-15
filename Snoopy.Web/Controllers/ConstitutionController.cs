@@ -19,10 +19,13 @@ namespace Snoopy.Web.Controllers
         {
             ConstitutionViewModel viewmodel = new ConstitutionViewModel();
             List<ConstitutionItemViewModel> items = new List<ConstitutionItemViewModel>();
-            items.Add(new ConstitutionItemViewModel() { Key = "teste1" });
-            items.Add(new ConstitutionItemViewModel() { Key = "teste2" });
-            items.Add(new ConstitutionItemViewModel() { Key = "teste3" });
-            viewmodel.Items = items;
+            items.Add(new ConstitutionItemViewModel() { Name = "teste1",Id = "1"});
+            items.Add(new ConstitutionItemViewModel() { Name = "teste2" ,Id="2"});
+            items.Add(new ConstitutionItemViewModel() { Name = "teste3" ,Id = "3"});
+            viewmodel.AvailableItems = items;
+            viewmodel.Posted=new PostedConstitutions();
+            viewmodel.SelectedItems=new List<ConstitutionItemViewModel>();
+            viewmodel.Posted.Keys = items.Select(it => it.Id).ToArray();
             return viewmodel;
         }
 
@@ -30,15 +33,16 @@ namespace Snoopy.Web.Controllers
         {
             return View(GetViewModel());
         }
-        [HttpPost]
-        [AllowAnonymous]
-   
-        public async Task<ActionResult> Save(ConstitutionViewModel items)
+
+
+        //string[] Keys, PostedConstitutions PostedConstitutions
+        public ActionResult Save(ConstitutionViewModel viewmodel)
         {
-            ViewBag.ReturnUrl = "Home/index";
+
+            //ViewBag.ReturnUrl = "Home/index";
             //return View();
-            Redirect("Home/Index");
-            return null;
+
+            return RedirectToAction("Index", "Home"); ;
         }
     }
 }
