@@ -460,6 +460,10 @@
       <Project>{842FBC94-6AC3-459D-8045-8A4DA7A9257B}</Project>
       <Name>Snoopy.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Snoopy.Data\Snoopy.Data.csproj">
+      <Project>{30BF2FDF-5924-4451-9397-FA21AE7F8189}</Project>
+      <Name>Snoopy.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Snoopy.Model\Snoopy.Model.csproj">
       <Project>{0DE652E9-A297-49CA-9C99-9307A7268786}</Project>
       <Name>Snoopy.Model</Name>

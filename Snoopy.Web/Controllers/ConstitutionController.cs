@@ -5,6 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Snoopy.Data;
+using Snoopy.Data.Model;
 
 namespace Snoopy.Web.Controllers
 {
@@ -18,14 +21,12 @@ namespace Snoopy.Web.Controllers
         public ConstitutionViewModel GetViewModel()
         {
             ConstitutionViewModel viewmodel = new ConstitutionViewModel();
-            List<ConstitutionItemViewModel> items = new List<ConstitutionItemViewModel>();
-            items.Add(new ConstitutionItemViewModel() { Name = "teste1",Id = "1"});
-            items.Add(new ConstitutionItemViewModel() { Name = "teste2" ,Id="2"});
-            items.Add(new ConstitutionItemViewModel() { Name = "teste3" ,Id = "3"});
-            viewmodel.AvailableItems = items;
-            viewmodel.Posted=new PostedConstitutions();
-            viewmodel.SelectedItems=new List<ConstitutionItemViewModel>();
-            viewmodel.Posted.Keys = items.Select(it => it.Id).ToArray();
+            var userlist = SymptomQuery.GetList(HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId());
+            var promtelist = SymptomQuery.GetMetaList();
+            viewmodel.AvailableItems = promtelist.Select(it => new ConstitutionItemViewModel() { Id = it.symptom_id, Name = it.symptom_name }).ToList();
+            viewmodel.Posted = new PostedConstitutions();
+            viewmodel.SelectedItems = userlist.Where(it => it.symptom_check).Select(it => new ConstitutionItemViewModel(){Id = it.symptom_id}).ToList();
+            //viewmodel.Posted.Keys = items.Select(it => it.Id).ToArray();
             return viewmodel;
         }
 
@@ -38,7 +39,25 @@ namespace Snoopy.Web.Controllers
         //string[] Keys, PostedConstitutions PostedConstitutions
         public ActionResult Save(ConstitutionViewModel viewmodel)
         {
-
+            var userid = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
+            SymptomQuery.Delete(userid);
+            var promtelist = SymptomQuery.GetMetaList();
+            foreach (var item in promtelist)
+            {
+                user_symptom userSymptom = new user_symptom();
+                userSymptom.ID = SymptomQuery.GetUserSymptomCount() + 1;
+                userSymptom.symptom_id = item.symptom_id;
+                userSymptom.user_id = userid;
+                if (viewmodel.Posted.Keys.Contains(item.symptom_id.ToString()))
+                {
+                     userSymptom.symptom_check = true;
+                }
+                else
+                {
+                    userSymptom.symptom_check = false;
+                }
+                SymptomQuery.Insert(userSymptom);
+            }
             //ViewBag.ReturnUrl = "Home/index";
             //return View();
 

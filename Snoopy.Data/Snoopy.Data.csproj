@@ -73,6 +73,7 @@
     <Compile Include="Model\user_symptom.cs" />
     <Compile Include="Model\user_symptom_meta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SymptomQuery.cs" />
     <Compile Include="UserQuery.cs" />
   </ItemGroup>
   <ItemGroup>
