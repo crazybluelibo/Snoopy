@@ -4,42 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using FooddbContext;
 using Snoopy.Data;
-using Snoopy.Data.Model;
 using Snoopy.Model;
 
 namespace Snoopy.Core
 {
     public static class Extends
     {
-        public static user_profile Touser_profile(this ApplicationUser user)
+        public static UserProfile Touser_profile(this ApplicationUser user)
         {
-            var userprofile = new user_profile();
-            userprofile.ID = UserQuery.GetCount("where 1=1") + 1;
-            userprofile.user_id = user.Id;
-            userprofile.birthday = user.Birthday;
-            userprofile.user_name = user.UserName;
-            userprofile.user_nickname = user.DisplayName;
-            userprofile.phone_number = user.PhoneNumber;
-            userprofile.gender = user.Gender;
-            userprofile.Email_addr = user.Email;
+            var foodEntity=new FooddbDataContext();
+            var userprofile = new UserProfile();
+            userprofile.ID = foodEntity.UserProfiles.Count()+1;
+            userprofile.UserId = user.Id;
+            userprofile.Birthday = user.Birthday;
+            userprofile.UserName = user.UserName;
+            userprofile.UserNickname = user.DisplayName;
+            userprofile.PhoneNumber = user.PhoneNumber;
+            userprofile.Gender = user.Gender;
+            userprofile.EmailAddr = user.Email;
             return userprofile;
 
         }
 
-        public static ApplicationUser ToApplicationUser(this user_profile userprofile)
+        public static ApplicationUser ToApplicationUser(this UserProfile userprofile)
         {
             if (userprofile == null) return null;
             ApplicationUser user = new ApplicationUser();
             //var userprofile = new user_profile();
             //userprofile.ID = UserQuery.GetCount("where 1=1") + 1;
-            user.Id = userprofile.user_id; ;
-            user.Birthday = userprofile.birthday; ;
-            user.UserName = userprofile.user_name; ;
-            user.DisplayName = userprofile.user_nickname; ;
-            user.PhoneNumber = userprofile.phone_number; ;
-            user.Gender = userprofile.gender; ;
-            user.Email = userprofile.Email_addr; ;
+            user.Id = userprofile.UserId; ;
+            user.Birthday = userprofile.Birthday; ;
+            user.UserName = userprofile.UserName; ;
+            user.DisplayName = userprofile.UserNickname; ;
+            user.PhoneNumber = userprofile.PhoneNumber; ;
+            user.Gender = userprofile.Gender; ;
+            user.Email = userprofile.EmailAddr; ;
             return user;
         }
 

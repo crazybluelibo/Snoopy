@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using FooddbContext;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Snoopy.Data;
@@ -25,13 +26,15 @@ namespace Snoopy.Core
 
         public Task CreateAsync(ApplicationUser user,string password)
         {
-            UserQuery.Insert(user.Touser_profile());
+            var foodcontext=new FooddbDataContext();
+            foodcontext.UserProfiles.InsertOnSubmit(user.Touser_profile());
             return Task.FromResult(0);
         }
        
         public Task CreateAsync(ApplicationUser user)
         {
-            UserQuery.Insert(user.Touser_profile());
+            var foodcontext = new FooddbDataContext();
+            foodcontext.UserProfiles.InsertOnSubmit(user.Touser_profile());
             return Task.FromResult(0);
         }
         public Task UpdateAsync(ApplicationUser user)
@@ -42,7 +45,9 @@ namespace Snoopy.Core
 
         public Task<ApplicationUser> FindByIdAsync(string userId)
         {
-           var t= UserQuery.GetModelByuserId(userId);
+            var foodcontext = new FooddbDataContext();
+
+            var t = foodcontext.UserProfiles.FirstOrDefault(it => it.UserId == userId);
             return Task.FromResult<ApplicationUser>(t.ToApplicationUser());
         }
 
@@ -59,8 +64,10 @@ namespace Snoopy.Core
             //    if (user.UserName == userName)
             //        return Task.FromResult(user);
             //}
-            var t = UserQuery.GetModel(userName);
-            if (t.phone_number == phoneName)
+            var foodcontext = new FooddbDataContext();
+
+            var t = foodcontext.UserProfiles.FirstOrDefault(it => it.UserId == userName);
+            if (t.PhoneNumber == phoneName)
             {
                 return Task.FromResult(t.ToApplicationUser());
             }
@@ -70,7 +77,9 @@ namespace Snoopy.Core
         {
 
             //}
-            var t = UserQuery.GetModel(userName);
+            var foodcontext = new FooddbDataContext();
+
+            var t = foodcontext.UserProfiles.FirstOrDefault(it => it.UserId == userName);
             //if (t.phone_number == phoneName)
             //{
                 return Task.FromResult(t.ToApplicationUser());

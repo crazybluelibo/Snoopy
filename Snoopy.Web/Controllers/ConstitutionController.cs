@@ -5,10 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using FooddbContext;
 using Microsoft.AspNet.Identity;
 using Snoopy.Data;
-using Snoopy.Data.Model;
-
 namespace Snoopy.Web.Controllers
 {
     /// <summary>
@@ -20,12 +19,14 @@ namespace Snoopy.Web.Controllers
 
         public ConstitutionViewModel GetViewModel()
         {
+            var foodContext=new  FooddbDataContext();
             ConstitutionViewModel viewmodel = new ConstitutionViewModel();
-            var userlist = SymptomQuery.GetList(HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId());
-            var promtelist = SymptomQuery.GetMetaList();
-            viewmodel.AvailableItems = promtelist.Select(it => new ConstitutionItemViewModel() { Id = it.symptom_id, Name = it.symptom_name }).ToList();
+                 var userid = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
+            var userlist = foodContext.UserSymptoms.Where(it => it.UserId == userid).ToList();
+            var promtelist = foodContext.UserSymptomMetas.ToList();
+            viewmodel.AvailableItems = promtelist.Select(it => new ConstitutionItemViewModel() { Id = it.SymptomId, Name = it.SymptomName }).ToList();
             viewmodel.Posted = new PostedConstitutions();
-            viewmodel.SelectedItems = userlist.Where(it => it.symptom_check).Select(it => new ConstitutionItemViewModel(){Id = it.symptom_id}).ToList();
+            viewmodel.SelectedItems = userlist.Where(it => it.SymptomCheck==true).Select(it => new ConstitutionItemViewModel(){Id = it.SymptomId.Value}).ToList();
             //viewmodel.Posted.Keys = items.Select(it => it.Id).ToArray();
             return viewmodel;
         }
@@ -39,24 +40,26 @@ namespace Snoopy.Web.Controllers
         //string[] Keys, PostedConstitutions PostedConstitutions
         public ActionResult Save(ConstitutionViewModel viewmodel)
         {
+            var foodContext = new FooddbDataContext();
             var userid = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
-            SymptomQuery.Delete(userid);
-            var promtelist = SymptomQuery.GetMetaList();
+            var userlist = foodContext.UserSymptoms.Where(it => it.UserId == userid).ToList();
+            var promtelist = foodContext.UserSymptomMetas.ToList();
+            foodContext.UserSymptoms.DeleteAllOnSubmit(userlist);
             foreach (var item in promtelist)
             {
-                user_symptom userSymptom = new user_symptom();
-                userSymptom.ID = SymptomQuery.GetUserSymptomCount() + 1;
-                userSymptom.symptom_id = item.symptom_id;
-                userSymptom.user_id = userid;
-                if (viewmodel.Posted.Keys.Contains(item.symptom_id.ToString()))
+                UserSymptom userSymptom = new UserSymptom();
+                userSymptom.ID = foodContext.UserSymptoms.Count() + 1;
+                userSymptom.SymptomId = item.SymptomId;
+                userSymptom.UserId = userid;
+                if (viewmodel.Posted.Keys.Contains(item.SymptomId.ToString()))
                 {
-                     userSymptom.symptom_check = true;
+                     userSymptom.SymptomCheck = true;
                 }
                 else
                 {
-                    userSymptom.symptom_check = false;
+                    userSymptom.SymptomCheck = false;
                 }
-                SymptomQuery.Insert(userSymptom);
+                foodContext.UserSymptoms.InsertOnSubmit(userSymptom);
             }
             //ViewBag.ReturnUrl = "Home/index";
             //return View();

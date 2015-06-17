@@ -17,14 +17,14 @@ namespace Snoopy.Model
         public string PhoneNumber { get; set; }
 
 
-        public bool Gender { get; set; }
+        public bool ?Gender { get; set; }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }
 
         public string ProfilePicUrl { get; set; }
 
-        public DateTime Birthday { get; set; }
+        public DateTime ?Birthday { get; set; }
         public DateTime DateCreated { get; set; }
 
         public DateTime? LastLoginTime { get; set; }

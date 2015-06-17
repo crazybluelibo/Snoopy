@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database Name="fooddb" EntityNamespace="FooddbContext" ContextNamespace="FooddbContext" Class="FooddbDataContext" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ed:Guid="5140c26b-66dc-4959-9aa8-d6c870842ffd" Provider="Devart.Data.MySql.Linq.Provider.MySqlDataProvider, Devart.Data.MySql.Linq" Extended="true" xmlns="http://schemas.devart.com/linqconnect/mapping">
+  <Connection Mode="ConnectionString" ConnectionString="User Id=mydbuser;Password=Rating123;Host=115.28.23.87;Database=fooddb;Persist Security Info=True" Provider="Devart.Data.MySql" />
+  <Table Name="fooddb.checkup" Member="Checkups">
+    <Type Name="Checkup" ed:Guid="e181b886-22af-44e7-8d28-5f288863264a">
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="77daca69-6c0f-41f7-85d7-6834f45087f2" />
+      <Column Name="user_id" Member="UserId" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="d83dfc59-7abf-43f8-adbe-43487aa850cd" />
+      <Column Name="check_desc" Member="CheckDesc" Type="System.String" DbType="VARCHAR(500) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="500" ed:ValidateMaxLength="500" ed:ValidateRequired="false" ed:Guid="447bb55d-8a03-47c6-8b92-2be26274804f" />
+      <Column Name="plan_date" Member="PlanDate" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="2fea3049-ad7e-41df-b3de-3dfcd50e38dc" />
+      <Column Name="act_date" Member="ActDate" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="7b923666-8f26-451e-8421-b0a005d738b9" />
+      <Column Name="weeks" Member="Weeks" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="447676ac-59ba-4d1a-acc1-68a48002b951" />
+      <Column Name="months" Member="Months" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="8527fd2a-4fe9-4433-89f1-aaffe97cd876" />
+      <Column Name="status" Member="Status" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="df8374f5-a4b2-4f97-a4c0-40b89964db99" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.checkup_report" Member="CheckupReports">
+    <Type Name="CheckupReport" ed:Guid="5cabc627-b892-4f40-90f8-df31eceb0681">
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="947dc22d-ebfb-4a94-b553-eabb211f866e" />
+      <Column Name="check_id" Member="CheckId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="26fd5504-56ce-4aa7-960e-9e389af7bbde" />
+      <Column Name="`desc`" Member="Desc" Type="System.String" DbType="VARCHAR(200) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="200" ed:ValidateMaxLength="200" ed:ValidateRequired="false" ed:Guid="4bf8901d-4074-4881-a3c2-67adc11d1fd1" />
+      <Column Name="report_file" Member="ReportFile" Type="System.Byte[]" DbType="BLOB NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="03e66faf-86f7-4ab2-bd0d-2537bef4c10d" />
+      <Column Name="need_reminding" Member="NeedReminding" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="6ed6ae10-8047-4fb1-8b2e-93953727f622" />
+      <Column Name="time_stamp" Member="TimeStamp" Type="System.DateTime" DbType="TIMESTAMP(6) NULL" CanBeNull="true" UpdateCheck="Never" Precision="6" ed:ValidateRequired="false" ed:Guid="8fe280a5-8555-4437-8e14-cb667adbc178" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.food_category" Member="FoodCategories">
+    <Type Name="FoodCategory" ed:Guid="a491f0ca-a0a7-4209-9b01-09cb2e7d05b1">
+      <Column Name="cate_id" Member="CateId" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="e4158fa3-a6a7-4135-8150-15c19bf359dc" />
+      <Column Name="parent_id" Member="ParentId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="824e4f49-1ef3-4810-86c7-0a442f04041e" />
+      <Column Name="cate_name" Member="CateName" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="eb66809d-1be3-49ee-be79-d2152dc3929f" />
+      <Column Name="note" Member="Note" Type="System.String" DbType="VARCHAR(200) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="200" ed:ValidateMaxLength="200" ed:ValidateRequired="false" ed:Guid="14d9be23-db42-46f5-aeb4-3b9eb9fb246b" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.food_main" Member="FoodMains">
+    <Type Name="FoodMain" ed:Guid="98ead7f6-302a-4a69-88fa-2b7802ff13eb">
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="true" ed:Guid="0ff06c59-47c7-43db-84ff-ca9015dd8bd8" />
+      <Column Name="fName" Member="FName" Type="System.String" DbType="VARCHAR(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="true" ed:Guid="8297cd27-303c-4369-a283-9208acfb1d18" />
+      <Column Name="fDiscription" Member="FDiscription" Type="System.String" DbType="VARCHAR(8000) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="8000" Unicode="true" ed:ValidateMaxLength="8000" ed:ValidateRequired="false" ed:Guid="e25ad509-2d30-40d8-abc9-c5b147b27cd9" />
+      <Column Name="fEfficacy" Member="FEfficacy" Type="System.String" DbType="VARCHAR(500) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="500" Unicode="true" ed:ValidateMaxLength="500" ed:ValidateRequired="false" ed:Guid="0e208a42-b76c-4fe8-a4cf-d1e6d1821bb2" />
+      <Column Name="fTaboo" Member="FTaboo" Type="System.String" DbType="VARCHAR(200) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="200" Unicode="true" ed:ValidateMaxLength="200" ed:ValidateRequired="false" ed:Guid="e69bd321-ce59-4fbb-ac80-2ca4a059850a" />
+      <Column Name="fFit" Member="FFit" Type="System.String" DbType="VARCHAR(200) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="200" Unicode="true" ed:ValidateMaxLength="200" ed:ValidateRequired="false" ed:Guid="091ca35c-6f51-43bf-aae0-2ac325a51773" />
+      <Column Name="fCharacter" Member="FCharacter" Type="System.String" DbType="VARCHAR(100) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="100" Unicode="true" ed:ValidateMaxLength="100" ed:ValidateRequired="false" ed:Guid="7d73880a-5b20-4d40-bc54-cfb67d91f8db" />
+      <Column Name="fPicture" Member="FPicture" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" Unicode="true" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="f1518585-65f6-4c33-9696-27bef60ad211" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.food_nutrition" Member="FoodNutritions">
+    <Type Name="FoodNutrition" ed:Guid="928def18-bb54-420c-81ff-3c8bb64eeed0">
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" CanBeNull="false" UpdateCheck="Never" Precision="11" ed:ValidateRequired="true" ed:Guid="c2f92ebe-52c2-40c1-9bc3-6f1d6cf1340d" />
+      <Column Name="foodID" Member="FoodID" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="cea342af-7d94-4380-9f05-a68b35393c5a" />
+      <Column Name="nName" Member="NName" Type="System.String" DbType="VARCHAR(50) NOT NULL" CanBeNull="false" UpdateCheck="Never" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="true" ed:Guid="9ba9b730-8d36-4922-8b54-5250cf8a3edf" />
+      <Column Name="nNumber" Member="NNumber" Type="System.String" DbType="VARCHAR(50) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="106b477f-cf52-4a62-b69b-41bab094eb31" />
+      <Column Name="nUnit" Member="NUnit" Type="System.String" DbType="VARCHAR(50) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="40097d79-c84c-4712-b583-cb223f6e236d" />
+      <Column Name="nPerWeight" Member="NPerWeight" Type="System.String" DbType="VARCHAR(50) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="50" Unicode="true" ed:ValidateMaxLength="50" ed:ValidateRequired="false" ed:Guid="38e642f0-d776-4825-9125-c6ff43353e1f" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.food_recommendation" Member="FoodRecommendations">
+    <Type Name="FoodRecommendation" ed:Guid="5a86eeed-d602-4010-9f0b-3b32b191e794">
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="3b7a261f-4804-43fc-b32e-9f669e324edf" />
+      <Column Name="user_id" Member="UserId" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="f7af8902-9110-4f13-9a36-0cf71da2d0d2" />
+      <Column Name="serial_code" Member="SerialCode" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="40da8972-5616-4f2c-abdc-97b21e5a11e1" />
+      <Column Name="food_id" Member="FoodId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="3e0e190d-c313-49d7-8230-0f5850f58cfe" />
+      <Column Name="recipe_id" Member="RecipeId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="2c514b3d-9614-465d-9313-8c381fad2809" />
+      <Column Name="reco_date" Member="RecoDate" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="008a5d64-552e-41e6-891a-95ee8d9ed429">
+        <Documentation>
+          <Summary>???????</Summary>
+        </Documentation>
+      </Column>
+      <Column Name="reco_period" Member="RecoPeriod" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="9d8d2bd3-0868-4070-9b04-8103ad6e8548">
+        <Documentation>
+          <Summary>???????????</Summary>
+        </Documentation>
+      </Column>
+      <Column Name="reco_frequency" Member="RecoFrequency" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="4eef44a7-bc43-4bdb-9f9d-da3f5c84d89d">
+        <Documentation>
+          <Summary>?????????</Summary>
+        </Documentation>
+      </Column>
+      <Column Name="add_date" Member="AddDate" Type="System.DateTime" DbType="TIMESTAMP(6) NULL" CanBeNull="true" UpdateCheck="Never" Precision="6" ed:ValidateRequired="false" ed:Guid="f411403a-ff9f-40ac-9b3c-b52906780c06">
+        <Documentation>
+          <Summary>???</Summary>
+        </Documentation>
+      </Column>
+    </Type>
+  </Table>
+  <Table Name="fooddb.food_recommendation_json" Member="FoodRecommendationJsons">
+    <Type Name="FoodRecommendationJson" ed:Guid="8deca1cc-4825-42ac-9b7e-ee50d8a5b38b">
+      <Documentation>
+        <Summary>????food_recommendation??food_recommendation???????</Summary>
+      </Documentation>
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="8a087f89-4198-4dd6-b6d7-29c514abf984" />
+      <Column Name="user_id" Member="UserId" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="8b9a1050-3c56-419d-a9d2-b7709caae073" />
+      <Column Name="json_code" Member="JsonCode" Type="System.Byte[]" DbType="BLOB NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="8e72832c-fc15-41d3-8a7a-4e6e5fee78ca" />
+      <Column Name="time_stamp" Member="TimeStamp" Type="System.DateTime" DbType="TIMESTAMP(6) NULL" CanBeNull="true" UpdateCheck="Never" Precision="6" ed:ValidateRequired="false" ed:Guid="041912a9-f528-463c-bcaa-a34c40e93492" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.note_box" Member="NoteBoxes">
+    <Type Name="NoteBox" ed:Guid="6c9f1ba5-2591-4bb6-93c3-e159022912f4">
+      <Documentation>
+        <Summary>????????/????</Summary>
+      </Documentation>
+      <Column Name="box_id" Member="BoxId" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="ce6fb494-2783-463c-a46b-8d0f596959fb" />
+      <Column Name="box_name" Member="BoxName" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="02cdd4ea-f001-44d9-99da-ffb2d053e8e7" />
+      <Column Name="box_type" Member="BoxType" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="88067d75-21a9-4b1d-8f51-7282f4254ad0">
+        <Documentation>
+          <Summary>0???????1???????2??????</Summary>
+        </Documentation>
+      </Column>
+      <Column Name="box_plan_frequency" Member="BoxPlanFrequency" Type="System.String" DbType="VARCHAR(128) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="128" ed:ValidateMaxLength="128" ed:ValidateRequired="false" ed:Guid="239453cd-b9ba-446a-a0ca-2b6ae8717cc3" />
+      <Column Name="box_plan_frequency_unit" Member="BoxPlanFrequencyUnit" Type="System.String" DbType="CHAR(1) NULL" CanBeNull="true" UpdateCheck="Never" FixedLength="true" MaxLength="1" ed:ValidateMaxLength="1" ed:ValidateRequired="false" ed:Guid="cd85a691-4b81-40dc-a81e-075f8aa7d41b">
+        <Documentation>
+          <Summary>h:hourly; d:daily; w:weekly; m:monthly</Summary>
+        </Documentation>
+      </Column>
+      <Column Name="box_plan_time" Member="BoxPlanTime" Type="System.DateTime" DbType="DATETIME(6) NULL" CanBeNull="true" UpdateCheck="Never" Precision="6" ed:ValidateRequired="false" ed:Guid="069a81fa-219d-4729-9410-3c5b1b975d93">
+        <Documentation>
+          <Summary>??????????</Summary>
+        </Documentation>
+      </Column>
+      <Column Name="time_stamp" Member="TimeStamp" Type="System.DateTime" DbType="TIMESTAMP(6) NULL" CanBeNull="true" UpdateCheck="Never" Precision="6" ed:ValidateRequired="false" ed:Guid="783c2402-c73d-4ba0-8a77-ac676ee1866a" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.note_box_template" Member="NoteBoxTemplates">
+    <Type Name="NoteBoxTemplate" ed:Guid="c5f580e4-de7a-4f7d-b140-1ec65ba21c0d">
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="f1a33468-f77c-4cec-afe9-ab7f7238f775" />
+      <Column Name="box_id" Member="BoxId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="af8fcc06-8297-47d7-9fac-09c909c4a42d" />
+      <Column Name="field_name" Member="FieldName" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="d51e5e68-623d-467f-b8a1-9a4dc621e33d" />
+      <Column Name="field_type" Member="FieldType" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="d558e29d-a325-49c8-ae6f-4b6cf833b598">
+        <Documentation>
+          <Summary>number/text/datetime/boolean</Summary>
+        </Documentation>
+      </Column>
+      <Column Name="field_unit" Member="FieldUnit" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="b9a58fcc-8747-4551-b044-841d56542b41">
+        <Documentation>
+          <Summary>?????????????</Summary>
+        </Documentation>
+      </Column>
+    </Type>
+  </Table>
+  <Table Name="fooddb.note_record" Member="NoteRecords">
+    <Type Name="NoteRecord" ed:Guid="c9551597-90e6-46da-b227-bec6da56121e">
+      <Column Name="record_id" Member="RecordId" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="b3625593-8ce5-4960-abfe-bb5392a3b730" />
+      <Column Name="box_id" Member="BoxId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="8a41c234-0d6a-4b27-8a0d-b96e2ce3304b" />
+      <Column Name="record_time" Member="RecordTime" Type="System.DateTime" DbType="DATETIME(6) NULL" CanBeNull="true" UpdateCheck="Never" Precision="6" ed:ValidateRequired="false" ed:Guid="1278c5a5-d825-4c7d-88f8-d091133aafaa" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.note_record_items" Member="NoteRecordItems">
+    <Type Name="NoteRecordItem" ed:Guid="b03137ad-7f48-49f1-bb5f-c43c1c0ecad0">
+      <Documentation>
+        <Summary>?????</Summary>
+      </Documentation>
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="00e7eb21-90f0-4664-a2c7-8d3320cc4831" />
+      <Column Name="record_id" Member="RecordId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="e01e0ff9-9186-4ad3-83ce-deccc717ebbb" />
+      <Column Name="item_name" Member="ItemName" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="f0cf73eb-37ca-4e2d-b4a1-bef8ddf6a8c8" />
+      <Column Name="item_value" Member="ItemValue" Type="System.String" DbType="VARCHAR(256) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="256" ed:ValidateMaxLength="256" ed:ValidateRequired="false" ed:Guid="b3fe5b27-baef-43d1-ae4a-808956f2a7d6" />
+      <Column Name="item_type" Member="ItemType" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="6cba993d-7ff8-428a-8a2e-142086f97374">
+        <Documentation>
+          <Summary>number/text/datetime/boolean</Summary>
+        </Documentation>
+      </Column>
+      <Column Name="item_unit" Member="ItemUnit" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="7f6975f4-9763-47b5-a528-1cc5dc79001e" />
+      <Column Name="time_stamp" Member="TimeStamp" Type="System.DateTime" DbType="TIMESTAMP(6) NULL" CanBeNull="true" UpdateCheck="Never" Precision="6" ed:ValidateRequired="false" ed:Guid="8334904e-4258-4cd4-a47c-ff18c60f3e31" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.plan_reminder" Member="PlanReminders">
+    <Type Name="PlanReminder" ed:Guid="f26f8ac3-60b8-4a2d-be2f-c17da870a99f">
+      <Documentation>
+        <Summary>??/?????????</Summary>
+      </Documentation>
+      <Column Name="plan_id" Member="PlanId" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="9fd351e9-b3c0-4e8d-9ad1-3d9c3fa8c8c1" />
+      <Column Name="user_id" Member="UserId" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="cd2cd707-0dfc-4529-8ae6-ad1e4565e511" />
+      <Column Name="plan_name" Member="PlanName" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="8e7f67dd-a01a-41f7-895a-d921006efe23" />
+      <Column Name="plan_freguency" Member="PlanFreguency" Type="System.String" DbType="VARCHAR(256) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="256" ed:ValidateMaxLength="256" ed:ValidateRequired="false" ed:Guid="b55813b1-dda4-4afe-9226-a9e6b63dbc28" />
+      <Column Name="plan_frequency_unit" Member="PlanFrequencyUnit" Type="System.String" DbType="CHAR(1) NULL" CanBeNull="true" UpdateCheck="Never" FixedLength="true" MaxLength="1" ed:ValidateMaxLength="1" ed:ValidateRequired="false" ed:Guid="4bc0ef4f-48f8-47ca-8ee0-5136f1a76c22">
+        <Documentation>
+          <Summary>h/d/w/m</Summary>
+        </Documentation>
+      </Column>
+      <Column Name="plan_start_date" Member="PlanStartDate" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="b1d30dc9-adf2-43a0-9f3b-e6c8a86998b1" />
+      <Column Name="plan_end_date" Member="PlanEndDate" Type="System.DateTime" DbType="DATETIME NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="6777a719-23ea-440f-8990-87f0ddd93a31" />
+      <Column Name="plan_status" Member="PlanStatus" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="b9c69050-068e-4c0d-b374-7b4c2d2968d5" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.plan_reminder_log" Member="PlanReminderLogs">
+    <Type Name="PlanReminderLog" ed:Guid="099cb5be-636c-428a-8f1e-0b7e0b9c8648">
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="e70cda90-1b34-40de-ad7e-9e2357b034c8" />
+      <Column Name="plan_id" Member="PlanId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="d0fef87f-2141-4d65-8561-de95370158d7" />
+      <Column Name="log" Member="Log" Type="System.String" DbType="VARCHAR(400) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="400" ed:ValidateMaxLength="400" ed:ValidateRequired="false" ed:Guid="7567b56c-e302-497c-b19e-c4aa416a7fb8" />
+      <Column Name="time_stamp" Member="TimeStamp" Type="System.DateTime" DbType="TIMESTAMP(6) NULL" CanBeNull="true" UpdateCheck="Never" Precision="6" ed:ValidateRequired="false" ed:Guid="0c66fb56-5b09-4c8f-bcf6-1f87b1c16436" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.symptom_food" Member="SymptomFoods">
+    <Type Name="SymptomFood" ed:Guid="a92c97e0-dd78-4437-9a11-a9b1c9e45303">
+      <Documentation>
+        <Summary>????</Summary>
+      </Documentation>
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="aee77870-684c-464f-a81a-628b1e593a60" />
+      <Column Name="symptom_id" Member="SymptomId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="238b094b-5e30-4018-8425-2b4fb6ea7a38" />
+      <Column Name="food_id" Member="FoodId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="5b933df4-7eae-4f1d-9500-9e5de8cc412b" />
+      <Column Name="suitability" Member="Suitability" Type="System.Int32" DbType="INT(1) NULL" CanBeNull="true" UpdateCheck="Never" Precision="1" ed:ValidateRequired="false" ed:Guid="a3d94a8f-d870-40f3-aa29-c198fa1d5132">
+        <Documentation>
+          <Summary>0??1??</Summary>
+        </Documentation>
+      </Column>
+      <Column Name="intensity" Member="Intensity" Type="System.Int32" DbType="INT(1) NULL" CanBeNull="true" UpdateCheck="Never" Precision="1" ed:ValidateRequired="false" ed:Guid="3ab6b970-06dc-4815-b369-015792e5b80b">
+        <Documentation>
+          <Summary>????????0????1???????2??????3????????</Summary>
+        </Documentation>
+      </Column>
+    </Type>
+  </Table>
+  <Table Name="fooddb.user_food_sentiment" Member="UserFoodSentiments">
+    <Type Name="UserFoodSentiment" ed:Guid="707bd822-9c62-4b7d-bd9c-51fb9e8dc2bc">
+      <Column Name="user_id" Member="UserId" Type="System.String" DbType="VARCHAR(45) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="true" ed:Guid="ef044495-9a69-4d6e-91b5-f9d51d1fcafe" />
+      <Column Name="cate_id" Member="CateId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" DefaultValue="0" Precision="11" ed:ValidateRequired="false" ed:Guid="97b7dbfe-fcf3-44e7-9d9f-b5065d98632d" />
+      <Column Name="food_id" Member="FoodId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" DefaultValue="0" Precision="11" ed:ValidateRequired="false" ed:Guid="c7e603c8-3ea0-4eb9-afac-237dfae8cbe2" />
+      <Column Name="sentiment" Member="Sentiment" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" DefaultValue="b'0'" ed:ValidateRequired="false" ed:Guid="6b9e18d6-3751-4087-bfcf-c5a15c20a71b" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.user_pregnant" Member="UserPregnants">
+    <Type Name="UserPregnant" ed:Guid="d1126748-c4d3-470a-924e-336f7e774bb2">
+      <Column Name="user_id" Member="UserId" Type="System.String" DbType="VARCHAR(45) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="true" ed:Guid="c4adb3f5-dca9-4b35-b7e0-d6c6a2bda517" />
+      <Column Name="pregnant_date" Member="PregnantDate" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="4c5f0ba8-d470-4341-b638-4c43e431be91" />
+      <Column Name="pregnant_times" Member="PregnantTimes" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="8a67959a-9a72-4547-b733-ddfe4c98acd3" />
+      <Column Name="got_cold" Member="GotCold" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="f529cc10-7936-4a6c-a68d-625d35a8dc25" />
+      <Column Name="cold_date" Member="ColdDate" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="8242b20d-c155-463f-8c25-230640ab008a" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.user_profile" Member="UserProfiles">
+    <Type Name="UserProfile" ed:Guid="11c213bd-4720-4b1a-9d16-8c955c68001d">
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="465a2a2e-c2df-4748-aca6-a885f2678b63" />
+      <Column Name="user_id" Member="UserId" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="932323b9-6181-47a3-bce3-e39dfdd85aef" />
+      <Column Name="user_name" Member="UserName" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="e08bd138-f1bd-405c-85f5-70d926da580f" />
+      <Column Name="user_nickname" Member="UserNickname" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="c7d8509a-cc21-43bd-bac8-cffb4bc2bf01" />
+      <Column Name="phone_number" Member="PhoneNumber" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="4e5abcff-d1ba-4f31-b6a6-579d9847263c" />
+      <Column Name="Email_addr" Member="EmailAddr" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="05824d9f-6de9-4c8d-814b-86fa6b8d5c71" />
+      <Column Name="gender" Member="Gender" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="01943806-e641-4b8c-a770-4b4947fe18df" />
+      <Column Name="birthday" Member="Birthday" Type="System.DateTime" DbType="DATE NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="e08aa2fe-1fbb-4dc4-9932-b9a3fd8f4196" />
+      <Column Name="location" Member="Location" Type="System.String" DbType="VARCHAR(100) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="100" ed:ValidateMaxLength="100" ed:ValidateRequired="false" ed:Guid="542ddba6-1fc4-4004-8175-c2770d7f5696" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.user_profile_extension" Member="UserProfileExtensions">
+    <Type Name="UserProfileExtension" ed:Guid="7def5829-2945-44a0-bb97-0ee9da8177a1">
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="6a601f60-51a7-422b-9fa1-17d0f6eade29" />
+      <Column Name="user_id" Member="UserId" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="b40c2c82-31a5-46fa-9204-40072931110f" />
+      <Column Name="meta_id" Member="MetaId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="efabe350-d5cc-4c85-b766-de41756a7f72" />
+      <Column Name="ext_value" Member="ExtValue" Type="System.String" DbType="VARCHAR(200) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="200" ed:ValidateMaxLength="200" ed:ValidateRequired="false" ed:Guid="9b5064e3-61be-4425-bf50-e2507473ff07" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.user_profile_meta" Member="UserProfileMetas">
+    <Type Name="UserProfileMeta" ed:Guid="fd7468d6-e85a-4c67-832e-6af2f7fe6d96">
+      <Column Name="meta_id" Member="MetaId" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="128d1b5a-c868-44e9-aae9-4294c7c0c845" />
+      <Column Name="meta_name" Member="MetaName" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="324710df-d66c-48e2-bb58-0926f4aebab7" />
+      <Column Name="meta_type" Member="MetaType" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="98dd2343-bab0-4eae-bddc-4a2454b755bb" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.user_symptom" Member="UserSymptoms">
+    <Type Name="UserSymptom" ed:Guid="c657a2c5-d14c-48f0-9ca5-e7deec38f773">
+      <Column Name="ID" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="ceba7f4e-0608-4ec7-9bb8-ce9bb7ef40ae" />
+      <Column Name="user_id" Member="UserId" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="709be2d6-46f4-4b96-bfbb-989c974a98b0" />
+      <Column Name="symptom_id" Member="SymptomId" Type="System.Int32" DbType="INT(11) NULL" CanBeNull="true" UpdateCheck="Never" Precision="11" ed:ValidateRequired="false" ed:Guid="a36ce5de-7b59-4854-b786-4748475f3a38" />
+      <Column Name="symptom_check" Member="SymptomCheck" Type="System.Boolean" DbType="BIT NULL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="3e276399-76ee-4d14-b64f-945cb9d524c9" />
+      <Column Name="symptom_desc" Member="SymptomDesc" Type="System.String" DbType="VARCHAR(200) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="200" ed:ValidateMaxLength="200" ed:ValidateRequired="false" ed:Guid="e7c5b7bb-9049-4cfb-96f5-81165921a3aa" />
+    </Type>
+  </Table>
+  <Table Name="fooddb.user_symptom_meta" Member="UserSymptomMetas">
+    <Type Name="UserSymptomMeta" ed:Guid="dbaa9bf5-2a87-4197-addc-1d60a254870a">
+      <Column Name="symptom_id" Member="SymptomId" Type="System.Int32" DbType="INT(11) NOT NULL" IsPrimaryKey="true" CanBeNull="false" UpdateCheck="Always" Precision="11" ed:ValidateRequired="true" ed:Guid="96cb2092-dbb0-4ca8-9ab2-12f4bddb5c5e" />
+      <Column Name="symptom_name" Member="SymptomName" Type="System.String" DbType="VARCHAR(45) NULL" CanBeNull="true" UpdateCheck="Never" MaxLength="45" ed:ValidateMaxLength="45" ed:ValidateRequired="false" ed:Guid="39436555-c514-444a-baaf-d0825a5c0e93" />
+    </Type>
+  </Table>
+</Database>
