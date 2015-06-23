@@ -11,20 +11,25 @@
             @*@Html.Partial("Notification", Model)*@
         </div>
         @*@if (Model.Count == 10)
-        {
-            <div id="morelink"> <a href="#" onclick="loadMore();">More Notifications</a></div>
-        }*@
+            {
+                <div id="morelink"> <a href="#" onclick="loadMore();">More Notifications</a></div>
+            }*@
     </div>
 
     <div class="span6">
         <div class="span12 well" style="height:265px;padding-top:5px;">
-            <h4>Goals</h4>
-            <ul class="nav nav-tabs" id="GoalTab">
-                <li class="active"><a href="#MyGoals">My Goals</a></li>
-                <li><a href="#FollowedGoals">Followed Goals</a></li>
-            </ul>
-            
+            <h4>推荐食谱</h4>
+            @*<ul class="nav nav-tabs" id="GoalTab">
+                    <li class="active"><a href="#MyGoals">推荐食谱</a></li>
+                    <li><a href="#FollowedGoals">Followed Goals</a></li>
+                </ul>*@
 
+            @foreach (var item in Model.FoodRecommandViewModel.Recommendations.Take(5))
+            {
+                <div class="item">
+                    @Html.Label(item.FName)
+                 </div>
+            }
         </div>
         <div class="span12 well" style="margin-left:0px;height:265px;padding-top:5px;">
             <h4>Groups</h4>
@@ -32,7 +37,7 @@
                 <li class="active"><a href="#MyGroups">My Groups</a></li>
                 <li><a href="#FollowedGroups">FollowedGroups</a></li>
             </ul>
-             
+
         </div>
 
     </div>

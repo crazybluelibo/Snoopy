@@ -21,7 +21,7 @@ namespace Snoopy.Web.Controllers
         {
             var foodContext=new  FooddbDataContext();
             ConstitutionViewModel viewmodel = new ConstitutionViewModel();
-                 var userid = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
+           var userid = HttpContext.GetOwinContext().Authentication.User.Identity.GetUserId();
             var userlist = foodContext.UserSymptoms.Where(it => it.UserId == userid).ToList();
             var promtelist = foodContext.UserSymptomMetas.ToList();
             viewmodel.AvailableItems = promtelist.Select(it => new ConstitutionItemViewModel() { Id = it.SymptomId, Name = it.SymptomName }).ToList();

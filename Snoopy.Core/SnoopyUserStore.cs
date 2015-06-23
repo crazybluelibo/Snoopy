@@ -66,7 +66,7 @@ namespace Snoopy.Core
             //}
             var foodcontext = new FooddbDataContext();
 
-            var t = foodcontext.UserProfiles.FirstOrDefault(it => it.UserId == userName);
+            var t = foodcontext.UserProfiles.FirstOrDefault(it => it.UserName == userName);
             if (t.PhoneNumber == phoneName)
             {
                 return Task.FromResult(t.ToApplicationUser());
@@ -79,7 +79,7 @@ namespace Snoopy.Core
             //}
             var foodcontext = new FooddbDataContext();
 
-            var t = foodcontext.UserProfiles.FirstOrDefault(it => it.UserId == userName);
+            var t = foodcontext.UserProfiles.FirstOrDefault(it => it.UserName == userName);
             //if (t.phone_number == phoneName)
             //{
                 return Task.FromResult(t.ToApplicationUser());

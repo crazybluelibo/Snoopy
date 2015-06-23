@@ -170,6 +170,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ConstitutionPromotViewModel.cs" />
+    <Compile Include="Models\FoodRecommandViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Models\NotificationsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
